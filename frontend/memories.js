@@ -58,7 +58,7 @@ async function loadMemories() {
         <div style="font-size: 3rem; margin-bottom: 12px;">🔌</div>
         <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">Memories Currently Unavailable</h3>
         <p style="color: var(--text-secondary); max-width: 400px; margin: 0 auto 16px;">
-          Make sure the SmartEventa backend server is running on <strong>http://localhost:5000</strong>
+          Make sure the SmartEventa backend server is running on <strong>https://smarteventa-backend.onrender.com</strong>
         </p>
         <a href="events.html" class="btn-primary">Explore Events Directory →</a>
       </div>

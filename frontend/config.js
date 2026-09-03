@@ -4,7 +4,7 @@
  * Change only this file to update the backend URL.
  */
 const CONFIG = {
-  API_BASE_URL: 'http://localhost:5000/api',
+  API_BASE_URL: 'https://smarteventa-backend.onrender.com/api',
   APP_NAME: 'SmartEventa AI',
   APP_TAGLINE: 'Discover. Manage. Experience Events Smarter.',
 };

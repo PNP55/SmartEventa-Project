@@ -77,7 +77,7 @@ async function loadEvents() {
       <div class="empty-state">
         <div class="empty-state-icon">🔌</div>
         <h3>Cannot connect to server</h3>
-        <p>Make sure the SmartEventa backend is running on <strong>http://localhost:5000</strong></p>
+        <p>Make sure the SmartEventa backend is running on <strong>https://smarteventa-backend.onrender.com</strong></p>
       </div>
     `;
     document.getElementById('results-summary').textContent = '';
