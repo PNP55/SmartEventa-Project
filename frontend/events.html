@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events — SmartEventa</title>
-  <meta name="description" content="Browse all upcoming, ongoing, and past events on SmartEventa. Search by name, filter by category and status." />
+  <meta name="description"
+    content="Browse all upcoming, ongoing, and past events on SmartEventa. Search by name, filter by category and status." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="events.css" />
   <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
+
 <body>
   <!-- ── Clean Navbar ───────────────────────────────────────────── -->
   <nav class="navbar" id="navbar">
@@ -56,13 +60,8 @@
       <div class="events-controls">
         <div class="search-wrapper">
           <span class="search-icon">🔍</span>
-          <input
-            type="search"
-            id="search-input"
-            class="search-input"
-            placeholder="Search events by title, venue, or keywords..."
-            aria-label="Search events"
-          />
+          <input type="search" id="search-input" class="search-input"
+            placeholder="Search events by title, venue, or keywords..." aria-label="Search events" />
           <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
         </div>
 
@@ -158,4 +157,5 @@
   <script src="config.js"></script>
   <script src="events.js"></script>
 </body>
+
 </html>

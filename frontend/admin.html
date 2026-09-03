@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +12,9 @@
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="admin.css" />
   <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
+
 <body>
 
   <!-- ── Sidebar Navigation ─────────────────────────────────────── -->
@@ -109,7 +112,8 @@
             <div class="section-heading-icon">🤖</div>
             <div>
               <h2 class="section-title">Create Event with AI Extraction</h2>
-              <p class="section-subtitle">Paste any public event webpage URL. SmartEventa will fetch metadata and use Gemini AI to fill missing information.</p>
+              <p class="section-subtitle">Paste any public event webpage URL. SmartEventa will fetch metadata and use
+                Gemini AI to fill missing information.</p>
             </div>
           </div>
 
@@ -120,16 +124,12 @@
               </label>
               <div class="url-input-wrapper">
                 <span class="url-prefix">🔗</span>
-                <input
-                  type="url"
-                  id="event-url"
-                  class="form-input url-input"
-                  placeholder="https://allevents.in/vadodara/kids-relay-race..."
-                  autocomplete="off"
-                />
+                <input type="url" id="event-url" class="form-input url-input"
+                  placeholder="https://allevents.in/vadodara/kids-relay-race..." autocomplete="off" />
               </div>
               <div class="input-hint">
-                Provide a full webpage URL. SmartEventa will automatically extract title, image, date, venue, and description.
+                Provide a full webpage URL. SmartEventa will automatically extract title, image, date, venue, and
+                description.
               </div>
             </div>
 
@@ -164,7 +164,8 @@
             <div class="section-heading-icon">✏️</div>
             <div>
               <h2 class="section-title">Review & Approve Event Draft</h2>
-              <p class="section-subtitle">Verify the extracted details. Modify any field if necessary before publishing to MongoDB.</p>
+              <p class="section-subtitle">Verify the extracted details. Modify any field if necessary before publishing
+                to MongoDB.</p>
             </div>
           </div>
 
@@ -172,8 +173,7 @@
             <!-- Preview Card -->
             <div class="event-preview-card" id="event-preview-card">
               <div class="preview-image-wrapper">
-                <img id="preview-image" src="" alt="Event preview" class="preview-image"
-                  onerror="this.src=''" />
+                <img id="preview-image" src="" alt="Event preview" class="preview-image" onerror="this.src=''" />
                 <div class="preview-image-overlay">
                   <span id="preview-category-badge" class="preview-badge">General</span>
                 </div>
@@ -252,7 +252,8 @@
                 <label class="form-label" for="edit-image">Cover Image URL</label>
                 <div class="image-url-wrapper">
                   <input type="url" id="edit-image" class="form-input" placeholder="https://..." />
-                  <button type="button" class="image-preview-btn" id="refresh-preview" aria-label="Refresh preview">↺</button>
+                  <button type="button" class="image-preview-btn" id="refresh-preview"
+                    aria-label="Refresh preview">↺</button>
                 </div>
               </div>
 
@@ -320,4 +321,5 @@
   <script src="config.js"></script>
   <script src="admin.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +12,9 @@
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="event-details.css" />
   <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
+
 <body>
   <!-- ── Clean Navbar ───────────────────────────────────────────── -->
   <nav class="navbar" id="navbar">
@@ -39,7 +42,7 @@
 
   <!-- ── Main Content ───────────────────────────────────────────── -->
   <main class="event-detail-main" id="event-detail-main">
-    
+
     <!-- Loading State -->
     <div class="detail-loading" id="detail-loading">
       <div class="loading-spinner"></div>
@@ -102,16 +105,23 @@
                 <div id="review-login-note" class="review-count"></div>
                 <form id="review-form" style="display:none;">
                   <div class="rating-input" aria-label="Choose a rating">
-                    <input type="radio" name="rating" id="rating-5" value="5"><label for="rating-5" title="5 stars">★</label>
-                    <input type="radio" name="rating" id="rating-4" value="4"><label for="rating-4" title="4 stars">★</label>
-                    <input type="radio" name="rating" id="rating-3" value="3"><label for="rating-3" title="3 stars">★</label>
-                    <input type="radio" name="rating" id="rating-2" value="2"><label for="rating-2" title="2 stars">★</label>
-                    <input type="radio" name="rating" id="rating-1" value="1"><label for="rating-1" title="1 star">★</label>
+                    <input type="radio" name="rating" id="rating-5" value="5"><label for="rating-5"
+                      title="5 stars">★</label>
+                    <input type="radio" name="rating" id="rating-4" value="4"><label for="rating-4"
+                      title="4 stars">★</label>
+                    <input type="radio" name="rating" id="rating-3" value="3"><label for="rating-3"
+                      title="3 stars">★</label>
+                    <input type="radio" name="rating" id="rating-2" value="2"><label for="rating-2"
+                      title="2 stars">★</label>
+                    <input type="radio" name="rating" id="rating-1" value="1"><label for="rating-1"
+                      title="1 star">★</label>
                   </div>
-                  <textarea id="review-comment" class="form-textarea" rows="4" maxlength="1000" placeholder="Tell others what you thought about this event..."></textarea>
+                  <textarea id="review-comment" class="form-textarea" rows="4" maxlength="1000"
+                    placeholder="Tell others what you thought about this event..."></textarea>
                   <div style="display:flex;gap:10px;align-items:center;margin-top:12px;">
                     <button type="submit" class="btn-primary" id="review-submit-btn">Post Review</button>
-                    <button type="button" class="btn-secondary" id="review-cancel-btn" style="display:none;">Cancel</button>
+                    <button type="button" class="btn-secondary" id="review-cancel-btn"
+                      style="display:none;">Cancel</button>
                   </div>
                 </form>
               </div>
@@ -236,4 +246,5 @@
   <script src="config.js"></script>
   <script src="event-details.js"></script>
 </body>
+
 </html>

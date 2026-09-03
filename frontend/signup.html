@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +12,9 @@
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="auth.css" />
   <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 </head>
+
 <body class="auth-body">
 
   <div class="auth-container">
@@ -31,40 +34,20 @@
       <form class="auth-form" id="signup-form" novalidate>
         <div class="form-group">
           <label class="form-label" for="name">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            class="form-input"
-            placeholder="Your full name"
-            autocomplete="name"
-            required
-          />
+          <input type="text" id="name" class="form-input" placeholder="Your full name" autocomplete="name" required />
         </div>
 
         <div class="form-group">
           <label class="form-label" for="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            class="form-input"
-            placeholder="you@example.com"
-            autocomplete="email"
-            required
-          />
+          <input type="email" id="email" class="form-input" placeholder="you@example.com" autocomplete="email"
+            required />
         </div>
 
         <div class="form-group">
           <label class="form-label" for="password">Password</label>
           <div class="password-wrapper">
-            <input
-              type="password"
-              id="password"
-              class="form-input"
-              placeholder="Min. 6 characters"
-              autocomplete="new-password"
-              required
-              minlength="6"
-            />
+            <input type="password" id="password" class="form-input" placeholder="Min. 6 characters"
+              autocomplete="new-password" required minlength="6" />
             <button type="button" class="password-toggle" id="password-toggle" aria-label="Toggle password">👁</button>
           </div>
         </div>
@@ -76,7 +59,8 @@
 
       <div class="auth-footer">
         <p>Already have an account? <a href="login.html" class="auth-link">Sign in</a></p>
-        <p><a href="events.html" style="color: var(--text-muted); font-size: 0.8rem;">Browse events without an account →</a></p>
+        <p><a href="events.html" style="color: var(--text-muted); font-size: 0.8rem;">Browse events without an account
+            →</a></p>
       </div>
     </div>
   </div>
@@ -86,4 +70,5 @@
   <script src="config.js"></script>
   <script src="signup.js"></script>
 </body>
+
 </html>
