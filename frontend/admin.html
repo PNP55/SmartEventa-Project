@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — SmartEventa</title>
+  <meta name="description" content="SmartEventa Admin Dashboard — Create & manage events with AI extraction." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+</head>
+<body>
+
+  <!-- ── Sidebar Navigation ─────────────────────────────────────── -->
+  <aside class="admin-sidebar" id="admin-sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+        <span class="logo-text">SmartEventa</span>
+      </a>
+    </div>
+    <div class="sidebar-divider"></div>
+    <nav class="sidebar-nav">
+      <a href="#" class="sidebar-link active" data-panel="create-event" id="nav-create">
+        <span class="sidebar-icon">✨</span>
+        Create Event (AI)
+      </a>
+      <a href="#" class="sidebar-link" data-panel="my-events" id="nav-my-events">
+        <span class="sidebar-icon">📋</span>
+        My Events
+      </a>
+      <a href="memories.html" class="sidebar-link" target="_blank">
+        <span class="sidebar-icon">📸</span>
+        Memories Archive
+      </a>
+      <a href="events.html" class="sidebar-link" target="_blank">
+        <span class="sidebar-icon">🌐</span>
+        Public Events
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="admin-user-info" id="admin-user-info">
+        <div class="admin-avatar" id="admin-avatar">A</div>
+        <div class="admin-user-details">
+          <div class="admin-user-name" id="admin-user-name">Admin</div>
+          <div class="admin-user-role">Administrator</div>
+        </div>
+      </div>
+      <button class="sidebar-logout" id="sidebar-logout">
+        <span>🔓</span> Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Main Content Area ──────────────────────────────────────── -->
+  <div class="admin-main" id="admin-main">
+
+    <!-- Header / Topbar -->
+    <header class="admin-topbar">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+      <div class="topbar-title" id="topbar-title">Admin Dashboard</div>
+      <div class="topbar-right">
+        <a href="events.html" class="btn-secondary" style="padding:7px 14px; font-size:0.85rem;">View Site →</a>
+      </div>
+    </header>
+
+    <!-- Create Event & Dashboard Panel -->
+    <div class="admin-panel" id="panel-create-event">
+      <div class="panel-inner">
+
+        <!-- Summary KPI Cards -->
+        <div class="kpi-grid" id="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon">📊</div>
+            <div class="kpi-info">
+              <div class="kpi-label">Total Events</div>
+              <div class="kpi-value" id="kpi-total">—</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📅</div>
+            <div class="kpi-info">
+              <div class="kpi-label">Upcoming Events</div>
+              <div class="kpi-value" id="kpi-upcoming">—</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📸</div>
+            <div class="kpi-info">
+              <div class="kpi-label">Past / Concluded</div>
+              <div class="kpi-value" id="kpi-past">—</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">👤</div>
+            <div class="kpi-info">
+              <div class="kpi-label">My Events</div>
+              <div class="kpi-value" id="kpi-my">—</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 1: URL Extraction -->
+        <div class="admin-section" id="section-extract">
+          <div class="section-heading">
+            <div class="section-heading-icon">🤖</div>
+            <div>
+              <h2 class="section-title">Create Event with AI Extraction</h2>
+              <p class="section-subtitle">Paste any public event webpage URL. SmartEventa will fetch metadata and use Gemini AI to fill missing information.</p>
+            </div>
+          </div>
+
+          <div class="extract-card">
+            <div class="form-group">
+              <label class="form-label" for="event-url">
+                Event Webpage URL <span class="label-badge">Required</span>
+              </label>
+              <div class="url-input-wrapper">
+                <span class="url-prefix">🔗</span>
+                <input
+                  type="url"
+                  id="event-url"
+                  class="form-input url-input"
+                  placeholder="https://allevents.in/vadodara/kids-relay-race..."
+                  autocomplete="off"
+                />
+              </div>
+              <div class="input-hint">
+                Provide a full webpage URL. SmartEventa will automatically extract title, image, date, venue, and description.
+              </div>
+            </div>
+
+            <div class="extract-actions">
+              <button class="btn-primary" id="extract-btn">
+                <span class="extract-btn-icon">✨</span>
+                <span id="extract-btn-text">Extract Event with AI</span>
+              </button>
+              <button class="btn-secondary" id="manual-btn">
+                ✏️ Enter Manually
+              </button>
+            </div>
+
+            <!-- Extraction Progress Status -->
+            <div class="extraction-status" id="extraction-status" style="display:none;">
+              <div class="status-loading" id="status-loading">
+                <div class="loading-spinner"></div>
+                <div class="status-steps" id="status-steps">
+                  <div class="status-step active" id="step-fetch">📡 Fetching webpage HTML...</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extraction Warning/Note -->
+            <div class="extraction-note" id="extraction-note" style="display:none;"></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Review & Edit Draft -->
+        <div class="admin-section" id="section-edit" style="display:none;">
+          <div class="section-heading">
+            <div class="section-heading-icon">✏️</div>
+            <div>
+              <h2 class="section-title">Review & Approve Event Draft</h2>
+              <p class="section-subtitle">Verify the extracted details. Modify any field if necessary before publishing to MongoDB.</p>
+            </div>
+          </div>
+
+          <div class="edit-layout">
+            <!-- Preview Card -->
+            <div class="event-preview-card" id="event-preview-card">
+              <div class="preview-image-wrapper">
+                <img id="preview-image" src="" alt="Event preview" class="preview-image"
+                  onerror="this.src=''" />
+                <div class="preview-image-overlay">
+                  <span id="preview-category-badge" class="preview-badge">General</span>
+                </div>
+              </div>
+              <div class="preview-body">
+                <h3 id="preview-title" class="preview-title">—</h3>
+                <p id="preview-desc" class="preview-desc"></p>
+                <div class="preview-meta">
+                  <div class="preview-meta-item" id="pm-date" style="display:none;">
+                    <span>📅</span><span id="pm-date-val">—</span>
+                  </div>
+                  <div class="preview-meta-item" id="pm-time" style="display:none;">
+                    <span>🕐</span><span id="pm-time-val">—</span>
+                  </div>
+                  <div class="preview-meta-item" id="pm-location" style="display:none;">
+                    <span>📍</span><span id="pm-location-val">—</span>
+                  </div>
+                </div>
+                <div class="preview-ai-badge">
+                  <span class="ai-pulse"></span>
+                  AI Draft Extracted
+                </div>
+              </div>
+            </div>
+
+            <!-- Edit Form -->
+            <div class="event-edit-form">
+              <div class="form-group">
+                <label class="form-label" for="edit-title">
+                  Event Title <span class="label-required">*</span>
+                </label>
+                <input type="text" id="edit-title" class="form-input" placeholder="Event title" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="edit-description">Description</label>
+                <textarea id="edit-description" class="form-textarea" rows="4"
+                  placeholder="Event description..."></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="edit-category">Category</label>
+                  <select id="edit-category" class="form-select">
+                    <option value="General">General</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Music">Music</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Education">Education</option>
+                    <option value="Business">Business</option>
+                    <option value="Food">Food</option>
+                    <option value="Art">Art</option>
+                    <option value="Health">Health</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Kids">Kids</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="edit-date">Date</label>
+                  <input type="date" id="edit-date" class="form-input" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="edit-time">Time</label>
+                  <input type="text" id="edit-time" class="form-input" placeholder="e.g. 6:00 PM" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="edit-location">Location / Venue</label>
+                  <input type="text" id="edit-location" class="form-input" placeholder="Venue, City" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="edit-image">Cover Image URL</label>
+                <div class="image-url-wrapper">
+                  <input type="url" id="edit-image" class="form-input" placeholder="https://..." />
+                  <button type="button" class="image-preview-btn" id="refresh-preview" aria-label="Refresh preview">↺</button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="edit-source-url">Source URL</label>
+                <input type="url" id="edit-source-url" class="form-input" placeholder="Original webpage URL" />
+              </div>
+
+              <!-- Approve Button -->
+              <div class="approve-section">
+                <button class="btn-approve" id="approve-btn">
+                  <span>✅</span>
+                  <span id="approve-btn-text">Approve & Create Event</span>
+                </button>
+                <button class="btn-secondary" id="restart-btn">← Extract Another</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- My Events Panel -->
+    <div class="admin-panel" id="panel-my-events" style="display:none;">
+      <div class="panel-inner">
+        <div class="admin-section">
+          <div class="section-heading">
+            <div class="section-heading-icon">📋</div>
+            <div>
+              <h2 class="section-title">My Created Events</h2>
+              <p class="section-subtitle">Manage all events you have published to the platform.</p>
+            </div>
+          </div>
+
+          <div class="my-events-grid" id="my-events-grid">
+            <div class="events-loading">
+              <div class="loading-spinner"></div>
+              <p>Loading your created events...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="success-modal" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-icon success">🎉</div>
+      <h2 class="modal-title">Event Successfully Published!</h2>
+      <p class="modal-body" id="modal-event-name"></p>
+      <p class="modal-subtitle">Your event is live on the public events page.</p>
+      <div class="modal-actions">
+        <a id="modal-view-event" href="events.html" class="btn-primary">View Event Details →</a>
+        <button onclick="closeModal()" class="btn-secondary">Create Another Event</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

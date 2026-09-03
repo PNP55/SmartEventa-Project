@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites — SmartEventa</title>
+  <meta name="description" content="Your saved SmartEventa events." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="events.css" />
+  <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+        <span class="logo-text">SmartEventa</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="memories.html" class="nav-link">Memories</a>
+        <a href="favorites.html" class="nav-link active">Favorites</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <div id="nav-auth"></div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="page-header-content">
+        <div class="section-badge">Your Collection</div>
+        <h1 class="page-title">Favorite Events</h1>
+        <p class="page-subtitle">Keep the events you care about close at hand.</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="events-main">
+    <div class="container">
+      <div id="favorites-grid" class="events-grid">
+        <div class="events-loading"><div class="loading-spinner"></div><p>Loading favorites...</p></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 SmartEventa. All rights reserved.</p>
+        <a href="events.html" style="color:var(--primary);font-weight:500;">← Browse Events</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+  <script src="config.js"></script>
+  <script src="favorites.js"></script>
+</body>
+</html>

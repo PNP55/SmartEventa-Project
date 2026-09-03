@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory Highlights — SmartEventa</title>
+  <meta name="description" content="View past event highlights and memories archive on SmartEventa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="memories.css" />
+  <link rel="stylesheet" href="event-details.css" />
+  <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+</head>
+<body>
+  <!-- ── Clean Navbar ───────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+        <span class="logo-text">SmartEventa</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="memories.html" class="nav-link active">Memories</a>
+        <a href="favorites.html" class="nav-link">Favorites</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <div id="nav-auth">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="signup.html" class="btn-nav-cta">Get Started</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Main Content ───────────────────────────────────────────── -->
+  <main class="event-detail-main" id="memory-detail-main">
+    
+    <!-- Loading State -->
+    <div class="detail-loading" id="detail-loading">
+      <div class="loading-spinner"></div>
+      <p>Loading event memory archive...</p>
+    </div>
+
+    <!-- Error State -->
+    <div class="detail-error" id="detail-error" style="display:none;">
+      <div class="error-icon">📸</div>
+      <h2>Memory Archive Not Found</h2>
+      <p id="error-message">This event memory does not exist or may have passed the 7-day memory archive window.</p>
+      <a href="memories.html" class="btn-primary" style="margin-top:20px;">← Back to Memories Archive</a>
+    </div>
+
+    <!-- Memory Content Container -->
+    <div id="memory-content" style="display:none;">
+
+      <!-- Hero Header Image -->
+      <div class="event-hero" id="event-hero">
+        <img id="memory-image" src="" alt="Memory banner" class="event-hero-img" />
+        <div class="event-hero-content">
+          <a href="memories.html" class="back-link">← Back to Memories</a>
+          <span class="badge badge-past" style="background:#F1F5F9; color:#475569; border:1px solid #CBD5E1;">📸 Concluded Event Archive</span>
+        </div>
+      </div>
+
+      <!-- Detail Container -->
+      <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="event-detail-grid">
+
+          <!-- Left Column -->
+          <div class="event-detail-left">
+            <div class="event-category-tag" id="memory-category">Category</div>
+            <h1 class="event-detail-title" id="memory-title">Event Title</h1>
+            
+            <div class="detail-block">
+              <h3 class="block-heading">Event Highlights & Summary</h3>
+              <div class="event-description" id="memory-description"></div>
+            </div>
+
+            <!-- Gallery Showcase -->
+            <div class="detail-block" style="margin-top: 32px;">
+              <h3 class="block-heading">Event Photo Gallery</h3>
+              <div class="memory-gallery-card" id="memory-gallery">
+                <div class="gallery-photo-frame">
+                  <img id="gallery-cover-img" src="" alt="Event Highlight" class="gallery-main-img" />
+                  <div class="gallery-caption" id="gallery-caption">Official Cover Capture</div>
+                </div>
+                <div class="gallery-empty-note">
+                  ℹ️ <span>Primary cover photography archived. Additional user submissions are closed for concluded events.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Links -->
+            <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="memories.html" class="btn-secondary">← Back to Memories</a>
+              <a id="regular-details-link" href="#" class="btn-ghost" style="border: 1px solid var(--border);">View Regular Event Page →</a>
+            </div>
+          </div>
+
+          <!-- Right Column / Memory Info Sidebar -->
+          <div class="event-detail-right">
+            <div class="event-info-card">
+              <h3 class="info-card-title">Memory Record</h3>
+
+              <div class="info-item" id="info-date">
+                <div class="info-icon">📅</div>
+                <div class="info-content">
+                  <div class="info-label">Event Date</div>
+                  <div class="info-value" id="memory-date">—</div>
+                </div>
+              </div>
+
+              <div class="info-item" id="info-time">
+                <div class="info-icon">🕐</div>
+                <div class="info-content">
+                  <div class="info-label">Time</div>
+                  <div class="info-value" id="memory-time">—</div>
+                </div>
+              </div>
+
+              <div class="info-item" id="info-location">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                  <div class="info-label">Venue / City</div>
+                  <div class="info-value" id="memory-location">—</div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">👤</div>
+                <div class="info-content">
+                  <div class="info-label">Organizer</div>
+                  <div class="info-value" id="memory-organizer">SmartEventa Admin</div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">🏷️</div>
+                <div class="info-content">
+                  <div class="info-label">Category</div>
+                  <div class="info-value" id="memory-category-val">General</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Share Section -->
+            <div class="share-card">
+              <h3 class="info-card-title">Share Memory</h3>
+              <div class="share-buttons">
+                <button class="share-btn" onclick="shareMemory('copy')">🔗 Copy Memory Link</button>
+                <button class="share-btn" onclick="shareMemory('twitter')">🐦 Share on Twitter</button>
+                <button class="share-btn" onclick="shareMemory('whatsapp')">💬 Share on WhatsApp</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+            <span class="logo-text">SmartEventa</span>
+          </a>
+          <p class="footer-tagline">Discover. Manage. Experience Events Smarter.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="memories.html">Memories</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="index.html#about">About</a>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="events.html?category=Technology">Technology</a>
+          <a href="events.html?category=Music">Music</a>
+          <a href="events.html?category=Sports">Sports</a>
+          <a href="events.html?category=Food">Food</a>
+        </div>
+        <div class="footer-links">
+          <h4>Account</h4>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmartEventa. All rights reserved.</p>
+        <a href="memories.html" style="color: var(--primary); font-weight: 500;">← Back to Memories Archive</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="config.js"></script>
+  <script src="memories-details.js"></script>
+</body>
+</html>

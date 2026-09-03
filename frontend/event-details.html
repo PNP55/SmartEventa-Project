@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Details — SmartEventa</title>
+  <meta name="description" content="View full event details, venue, time, and description on SmartEventa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="event-details.css" />
+  <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+</head>
+<body>
+  <!-- ── Clean Navbar ───────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+        <span class="logo-text">SmartEventa</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="memories.html" class="nav-link">Memories</a>
+        <a href="favorites.html" class="nav-link">Favorites</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <div id="nav-auth">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="signup.html" class="btn-nav-cta">Get Started</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Main Content ───────────────────────────────────────────── -->
+  <main class="event-detail-main" id="event-detail-main">
+    
+    <!-- Loading State -->
+    <div class="detail-loading" id="detail-loading">
+      <div class="loading-spinner"></div>
+      <p>Loading event details...</p>
+    </div>
+
+    <!-- Error State -->
+    <div class="detail-error" id="detail-error" style="display:none;">
+      <div class="error-icon">🚫</div>
+      <h2>Event Not Found</h2>
+      <p id="error-message">The requested event could not be found or may have been removed.</p>
+      <a href="events.html" class="btn-primary" style="margin-top:20px;">← Back to Events Directory</a>
+    </div>
+
+    <!-- Event Content Container -->
+    <div id="event-content" style="display:none;">
+
+      <!-- Hero Header Image -->
+      <div class="event-hero" id="event-hero">
+        <img id="event-image" src="" alt="Event banner" class="event-hero-img" />
+        <div class="event-hero-content">
+          <a href="events.html" class="back-link">← All Events</a>
+          <div id="event-status-badge"></div>
+        </div>
+      </div>
+
+      <!-- Detail Container -->
+      <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="event-detail-grid">
+
+          <!-- Left Column -->
+          <div class="event-detail-left">
+            <div class="event-category-tag" id="event-category">General</div>
+            <h1 class="event-detail-title" id="event-title">Event Title</h1>
+
+            <div class="event-favorite-panel">
+              <button type="button" class="favorite-large-btn" id="event-favorite-btn" aria-pressed="false">
+                ♡ Add to Favorites
+              </button>
+            </div>
+
+            <div class="detail-block">
+              <h3 class="block-heading">About This Event</h3>
+              <div class="event-description" id="event-description"></div>
+            </div>
+
+            <!-- Reviews -->
+            <section class="reviews-section" id="reviews-section">
+              <h3 class="block-heading">Reviews & Ratings</h3>
+              <div class="review-summary" id="review-summary">
+                <div class="review-average" id="review-average">—</div>
+                <div>
+                  <div class="review-stars" id="review-stars">☆☆☆☆☆</div>
+                  <div class="review-count" id="review-count">No reviews yet</div>
+                </div>
+              </div>
+
+              <div class="review-form-card" id="review-form-card">
+                <div class="review-form-title" id="review-form-title">Share your experience</div>
+                <div id="review-login-note" class="review-count"></div>
+                <form id="review-form" style="display:none;">
+                  <div class="rating-input" aria-label="Choose a rating">
+                    <input type="radio" name="rating" id="rating-5" value="5"><label for="rating-5" title="5 stars">★</label>
+                    <input type="radio" name="rating" id="rating-4" value="4"><label for="rating-4" title="4 stars">★</label>
+                    <input type="radio" name="rating" id="rating-3" value="3"><label for="rating-3" title="3 stars">★</label>
+                    <input type="radio" name="rating" id="rating-2" value="2"><label for="rating-2" title="2 stars">★</label>
+                    <input type="radio" name="rating" id="rating-1" value="1"><label for="rating-1" title="1 star">★</label>
+                  </div>
+                  <textarea id="review-comment" class="form-textarea" rows="4" maxlength="1000" placeholder="Tell others what you thought about this event..."></textarea>
+                  <div style="display:flex;gap:10px;align-items:center;margin-top:12px;">
+                    <button type="submit" class="btn-primary" id="review-submit-btn">Post Review</button>
+                    <button type="button" class="btn-secondary" id="review-cancel-btn" style="display:none;">Cancel</button>
+                  </div>
+                </form>
+              </div>
+
+              <div id="reviews-list"></div>
+            </section>
+
+            <!-- Original Source Link -->
+            <div class="event-source" id="event-source" style="display:none; margin-top: 24px;">
+              <h3 class="block-heading">Original Source Page</h3>
+              <a id="source-link" href="#" target="_blank" rel="noopener" class="source-url">
+                🔗 View original event webpage →
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column / Information Sidebar -->
+          <div class="event-detail-right">
+            <div class="event-info-card">
+              <h3 class="info-card-title">Event Overview</h3>
+
+              <div class="info-item" id="info-date" style="display:none;">
+                <div class="info-icon">📅</div>
+                <div class="info-content">
+                  <div class="info-label">Date</div>
+                  <div class="info-value" id="detail-date"></div>
+                </div>
+              </div>
+
+              <div class="info-item" id="info-time" style="display:none;">
+                <div class="info-icon">🕐</div>
+                <div class="info-content">
+                  <div class="info-label">Time</div>
+                  <div class="info-value" id="detail-time"></div>
+                </div>
+              </div>
+
+              <div class="info-item" id="info-location" style="display:none;">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                  <div class="info-label">Location</div>
+                  <div class="info-value" id="detail-location"></div>
+                </div>
+              </div>
+
+              <div class="info-item" id="info-organizer" style="display:none;">
+                <div class="info-icon">👤</div>
+                <div class="info-content">
+                  <div class="info-label">Published By</div>
+                  <div class="info-value" id="detail-organizer">SmartEventa Admin</div>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">🏷️</div>
+                <div class="info-content">
+                  <div class="info-label">Category</div>
+                  <div class="info-value" id="detail-category">General</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Share Section -->
+            <div class="share-card">
+              <h3 class="info-card-title">Share Event</h3>
+              <div class="share-buttons">
+                <button class="share-btn" onclick="shareEvent('copy')" id="copy-btn">🔗 Copy Link</button>
+                <button class="share-btn" onclick="shareEvent('twitter')">🐦 Share on Twitter</button>
+                <button class="share-btn" onclick="shareEvent('whatsapp')">💬 Share on WhatsApp</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+            <span class="logo-text">SmartEventa</span>
+          </a>
+          <p class="footer-tagline">Discover. Manage. Experience Events Smarter.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="memories.html">Memories</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="index.html#about">About</a>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="events.html?category=Technology">Technology</a>
+          <a href="events.html?category=Music">Music</a>
+          <a href="events.html?category=Sports">Sports</a>
+          <a href="events.html?category=Food">Food</a>
+        </div>
+        <div class="footer-links">
+          <h4>Account</h4>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmartEventa. All rights reserved.</p>
+        <a href="events.html" style="color: var(--primary); font-weight: 500;">← Back to Events Directory</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="config.js"></script>
+  <script src="event-details.js"></script>
+</body>
+</html>

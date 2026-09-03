@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — SmartEventa</title>
+  <meta name="description" content="Browse all upcoming, ongoing, and past events on SmartEventa. Search by name, filter by category and status." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="events.css" />
+  <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+</head>
+<body>
+  <!-- ── Clean Navbar ───────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+        <span class="logo-text">SmartEventa</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="events.html" class="nav-link active">Events</a>
+        <a href="memories.html" class="nav-link">Memories</a>
+        <a href="favorites.html" class="nav-link">Favorites</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <div id="nav-auth">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="signup.html" class="btn-nav-cta">Get Started</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Page Header ────────────────────────────────────────────── -->
+  <div class="page-header">
+    <div class="container">
+      <div class="page-header-content">
+        <div class="section-badge">Event Directory</div>
+        <h1 class="page-title">Discover Events</h1>
+        <p class="page-subtitle">Find workshops, summits, sports, and cultural experiences happening near you.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Content ───────────────────────────────────────────── -->
+  <main class="events-main">
+    <div class="container">
+
+      <!-- Search & Filters -->
+      <div class="events-controls">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input
+            type="search"
+            id="search-input"
+            class="search-input"
+            placeholder="Search events by title, venue, or keywords..."
+            aria-label="Search events"
+          />
+          <button class="search-clear" id="search-clear" aria-label="Clear search">✕</button>
+        </div>
+
+        <div class="filters-row">
+          <!-- Status Filter -->
+          <div class="filter-group" role="group" aria-label="Filter by status">
+            <button class="filter-btn active" data-filter="status" data-value="all" id="filter-all">All Events</button>
+            <button class="filter-btn" data-filter="status" data-value="upcoming" id="filter-upcoming">Upcoming</button>
+            <button class="filter-btn" data-filter="status" data-value="ongoing" id="filter-ongoing">
+              <span class="live-dot"></span>
+              Live Now
+            </button>
+            <button class="filter-btn" data-filter="status" data-value="past" id="filter-past">Past</button>
+          </div>
+
+          <!-- Category Filter -->
+          <select class="category-select" id="category-select" aria-label="Filter by category">
+            <option value="">All Categories</option>
+            <option value="Technology">Technology</option>
+            <option value="Music">Music</option>
+            <option value="Sports">Sports</option>
+            <option value="Education">Education</option>
+            <option value="Business">Business</option>
+            <option value="Food">Food</option>
+            <option value="Art">Art</option>
+            <option value="Health">Health</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="General">General</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Results Summary -->
+      <div class="results-summary" id="results-summary">
+        <span id="results-count">Loading events...</span>
+      </div>
+
+      <!-- Events Grid -->
+      <div class="events-grid" id="events-grid">
+        <div class="events-loading">
+          <div class="loading-spinner"></div>
+          <p>Loading events...</p>
+        </div>
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more-wrapper" id="load-more-wrapper" style="display:none;">
+        <button class="btn-secondary" id="load-more-btn">Load More Events</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+            <span class="logo-text">SmartEventa</span>
+          </a>
+          <p class="footer-tagline">Discover. Manage. Experience Events Smarter.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="memories.html">Memories</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="index.html#about">About</a>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="events.html?category=Technology">Technology</a>
+          <a href="events.html?category=Music">Music</a>
+          <a href="events.html?category=Sports">Sports</a>
+          <a href="events.html?category=Food">Food</a>
+        </div>
+        <div class="footer-links">
+          <h4>Account</h4>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmartEventa. All rights reserved.</p>
+        <a href="index.html" style="color: var(--primary); font-weight: 500;">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="events.js"></script>
+</body>
+</html>

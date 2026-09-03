@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartEventa — Discover & Experience Events</title>
+  <meta name="description"
+    content="SmartEventa is an intelligent event discovery and management platform. Find upcoming events, tech summits, music festivals, workshops, and recent event memories." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+</head>
+
+<body>
+  <!-- ── Clean Navbar ───────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" id="nav-logo">
+        <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+        <span class="logo-text">SmartEventa</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="events.html" class="nav-link">Events</a>
+        <a href="memories.html" class="nav-link">Memories</a>
+        <a href="favorites.html" class="nav-link">Favorites</a>
+        <a href="#about" class="nav-link">About</a>
+        <div id="nav-auth">
+          <a href="login.html" class="nav-link">Login</a>
+          <a href="signup.html" class="btn-nav-cta">Get Started</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── Hero Section (Editorial & Human) ───────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-content-wrapper">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Intelligent Event Discovery
+        </div>
+        <h1 class="hero-title">
+          Find something<br />
+          <span class="gradient-text">worth experiencing.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Discover events, workshops, festivals, and experiences happening around you. SmartEventa uses AI to curate and
+          present events effortlessly.
+        </p>
+        <div class="hero-actions">
+          <a href="events.html" class="btn-primary" id="hero-explore-btn">
+            Explore Events →
+          </a>
+          <a href="login.html" class="btn-secondary" id="hero-start-btn">Create an Event</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number" id="stat-events">0</span>
+            <span class="stat-label">Events Listed</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">AI</span>
+            <span class="stat-label">Assisted</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Dynamic</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-featured">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop"
+            alt="Featured event" class="hero-card-img" />
+          <div class="hero-card-body">
+            <div class="hero-card-tag">Technology</div>
+            <h3 class="hero-card-title">TechFest 2026 — Annual Summit</h3>
+            <div class="hero-card-meta">
+              <span>📅 Sep 15, 2026</span>
+              <span>📍 Mumbai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ───────────────────────────────────────────── -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Simple & Automated</div>
+        <h2 class="section-title">How SmartEventa Works</h2>
+        <p class="section-subtitle">From an event webpage URL to a published listing — in seconds.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-icon">🔗</div>
+          <div class="step-number">Step 01</div>
+          <h3 class="step-title">Paste Webpage URL</h3>
+          <p class="step-desc">Administrators submit any event page link into the dashboard.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🤖</div>
+          <div class="step-number">Step 02</div>
+          <h3 class="step-title">AI Metadata Parsing</h3>
+          <p class="step-desc">SmartEventa and Gemini AI extract dates, venue, and descriptions.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">✏️</div>
+          <div class="step-number">Step 03</div>
+          <h3 class="step-title">Review & Edit</h3>
+          <p class="step-desc">Administrators preview and refine the extracted draft information.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🎉</div>
+          <div class="step-number">Step 04</div>
+          <h3 class="step-title">Live Publication</h3>
+          <p class="step-desc">Approved events appear instantly for users to discover and join.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Events ────────────────────────────────────────── -->
+  <section class="section featured-events" id="featured-events">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Explore</div>
+        <h2 class="section-title">Featured Events</h2>
+        <p class="section-subtitle">Handpicked experiences happening soon near you.</p>
+      </div>
+      <div class="events-grid" id="featured-events-grid">
+        <div class="events-loading">
+          <div class="loading-spinner"></div>
+          <p>Loading upcoming events...</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="events.html" class="btn-primary" id="view-all-events-btn">View All Events →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Section ────────────────────────────────────────────── -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <h2 class="cta-title">Ready to Experience More?</h2>
+        <p class="cta-subtitle">Join SmartEventa today and discover events crafted for you.</p>
+        <div class="cta-actions">
+          <a href="events.html" class="btn-primary" id="cta-explore-btn">Browse All Events</a>
+          <a href="signup.html" class="btn-ghost" id="cta-signup-btn">Create Free Account</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+            <span class="logo-text">SmartEventa</span>
+          </a>
+          <p class="footer-tagline">Discover. Manage. Experience Events Smarter.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="memories.html">Memories</a>
+          <a href="#about">About</a>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="events.html?category=Technology">Technology</a>
+          <a href="events.html?category=Music">Music</a>
+          <a href="events.html?category=Sports">Sports</a>
+          <a href="events.html?category=Food">Food</a>
+        </div>
+        <div class="footer-links">
+          <h4>Account</h4>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+          <a href="login.html">Admin Dashboard</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SmartEventa. All rights reserved.</p>
+        <p>Built with Node.js · Express · MongoDB · Gemini AI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

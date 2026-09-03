@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — SmartEventa</title>
+  <meta name="description" content="Login to your SmartEventa account to access admin features and manage events." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="auth.css" />
+  <link rel="icon" type="image/png" href="assets/smarteventa-logo.png" />
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <div class="auth-card">
+      <a href="index.html" class="auth-logo">
+        <img src="assets/smarteventa-logo.png" alt="SmartEventa" class="smart-eventa-logo" />
+        <span class="logo-text">SmartEventa</span>
+      </a>
+
+      <div class="auth-header">
+        <h1 class="auth-title">Welcome back</h1>
+        <p class="auth-subtitle">Sign in to your SmartEventa account.</p>
+      </div>
+
+      <div class="auth-alert" id="auth-alert" style="display:none;"></div>
+
+      <form class="auth-form" id="login-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            class="form-input"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password"
+              class="form-input"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="password-toggle" id="password-toggle" aria-label="Toggle password">👁</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary btn-full" id="login-btn">
+          Sign In
+        </button>
+      </form>
+
+      <div class="demo-hint">
+        <details>
+          <summary>💡 Demo Login Credentials</summary>
+          <div class="demo-creds">
+            <div class="demo-cred-row">
+              <span class="demo-role">Admin</span>
+              <code>admin@smarteventa.com</code>
+              <code>Admin@1234</code>
+            </div>
+            <div class="demo-cred-row">
+              <span class="demo-role">User</span>
+              <code>user@smarteventa.com</code>
+              <code>User@1234</code>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="signup.html" class="auth-link">Sign up free</a></p>
+        <p><a href="events.html" style="color: var(--text-muted); font-size: 0.8rem;">Browse events without signing in →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="config.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
